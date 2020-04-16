@@ -30,6 +30,12 @@ if (process.env.NODE_ENV === 'production') {
       db: 2,
       password: 'Zxs-2mdsr_3'
     },
+    flightBase: {
+      baseUrl: 'http://106.75.244.92:3333',
+      endPoint: {
+        flightQuery: '/flights'
+      }
+    },
     privateKey: 'a8bfccb455e1e39e75ed9490aaa75ab7d771cb02f748eff6039022be7e972d3a',
     logLevel: 'ERROR' // ERROR
   }
@@ -61,6 +67,12 @@ if (process.env.NODE_ENV === 'production') {
       host: '127.0.0.1' || 'myredis',
       port: 6379,
       db: 2
+    },
+    flightBase: {
+      baseURL: 'http://127.0.0.1:3333',
+      endPoint: {
+        flightQuery: '/flights'
+      }
     },
     privateKey: 'a8bfccb455e1e39e75ed9490aaa75cb7d771cb02f748eff6039022be7e972d3a',
     logLevel: 'DEBUG'
