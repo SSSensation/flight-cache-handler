@@ -76,7 +76,8 @@ const workFunc = async (tktTaskBase, flightlib) => {
           dCity: t.dCity,
           aCity: t.aCity,
           departureDate: t.departureDate,
-          carrier: t.airline
+          carrier: t.airline,
+          force: true
         }
 
         let flightInfo = await flightlib.scanFlight({
