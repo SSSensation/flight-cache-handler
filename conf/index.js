@@ -1,6 +1,27 @@
 if (process.env.NODE_ENV === 'production') {
   module.exports = {
     env: true, // production env
+    // 生产环境调度策略
+    schedule: {
+      // 刷新任务的时间安排
+      taskSet: '1 1 * * *',
+      // 执行任务的时间安排
+      taskStart: '2 1 * * *',
+      // 添加扫票任务的时间安排
+      ticketingTaskAdd: '*/5 * * * *',
+      // 扫票频率 (微秒)
+      loopTime: 1000 * 60 * 10 // 10 分钟一次 (deprecated)
+    },
+    mail: {
+      user: 'tkt@ihisen.com',
+      pass: '1234.com',
+      receivers: [
+        "shijingxian@ihisen.com",
+        "fengying@ihisen.com",,
+        "shiguanda@ihisen.com"
+      ]
+    },
+    ctct: '13061895857',
     mysql: {
       host: '10.23.43.163', // ucloud rds
       user: 'ibeplus',
@@ -33,7 +54,9 @@ if (process.env.NODE_ENV === 'production') {
     flightBase: {
       baseUrl: 'http://106.75.244.92:3333',
       endPoint: {
-        flightQuery: '/flights'
+        flightQuery: '/flights',
+        flightPriceQuery: '/flight',
+        createOrder: '/orders'
       }
     },
     privateKey: 'a8bfccb455e1e39e75ed9490aaa75ab7d771cb02f748eff6039022be7e972d3a',
@@ -42,8 +65,13 @@ if (process.env.NODE_ENV === 'production') {
 } else {
   module.exports = {
     env: false, // development env
+    ctct: '13061895857',
+    schedule: {
+      ticketingTaskAdd: '*/2 * * * *',
+      loopTime: 1000 * 60 * 1 // 1分钟一次 (deprecated)
+    },
     mysql: {
-      host: process.env.dbHost || '127.0.0.1' || 'mysqllocal',
+      host: '127.0.0.1' || 'mysqllocal' || '116.230.37.113',
       user: 'root',
       port: '3307',
       password: 'ufwtfie',
@@ -53,26 +81,37 @@ if (process.env.NODE_ENV === 'production') {
       connectionLimit: 300
     },
     cacheRedis: {
-      host: '127.0.0.1' || 'myredis',
+      host: 'myredis' || '127.0.0.1',
       port: 6379,
       prefix: 'flightEngine',
       db: 0
     },
     sessionRedis: {
-      host: '127.0.0.1' || 'myredis',
+      host: 'myredis' || '127.0.0.1',
       port: 6379,
       db: 1
     },
     storageRedis: {
-      host: '127.0.0.1' || 'myredis',
+      host: 'myredis' || '127.0.0.1',
       port: 6379,
       db: 2
     },
     flightBase: {
       baseURL: 'http://127.0.0.1:3333',
+      // baseURL: 'http://120.132.23.140:3333',
       endPoint: {
-        flightQuery: '/flights'
+        flightQuery: '/flights',
+        flightPriceQuery: '/flight',
+        createOrder: '/orders',
+        createTMCOrder: '/tmc/orders'
       }
+    },
+    mail: {
+      user: 'tkt@ihisen.com',
+      pass: '1234.com',
+      receivers: [
+        "shijingxian@ihisen.com"
+      ]
     },
     privateKey: 'a8bfccb455e1e39e75ed9490aaa75cb7d771cb02f748eff6039022be7e972d3a',
     logLevel: 'DEBUG'

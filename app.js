@@ -6,6 +6,10 @@ const flightReqClient = require('./libs/flightReqClient')
 
 const TaskQueue = require('./libs/taskQueue')
 const taskBase = new TaskQueue()
+const ticketingTask = require('./libs/ticketingTaskQueue')
+const tktTaskBase = new ticketingTask()
+
+
 const flightlib = new flightReqClient()
 flightlib.init()
 
@@ -14,6 +18,9 @@ flightlib.init()
 libs.scheduleSet(taskBase)
 // 请求发起程序
 libs.scheduleStart(taskBase, flightlib)
+
+// 启动代理出票程序
+libs.tmcAutoTicketing(tktTaskBase, flightlib)
 
 
 const app = express()
