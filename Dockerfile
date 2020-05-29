@@ -5,7 +5,7 @@ WORKDIR /usr/src/app
 RUN mkdir flightCacheHandler
 
 ENV TZ Asia/Shanghai
-# ENV NODE_ENV production
+ENV NODE_ENV production
 
 WORKDIR /usr/src/app/flightCacheHandler
 COPY . .
