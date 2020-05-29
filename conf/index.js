@@ -52,7 +52,7 @@ if (process.env.NODE_ENV === 'production') {
       password: 'Zxs-2mdsr_3'
     },
     flightBase: {
-      baseUrl: 'http://106.75.244.92:3333',
+      baseURl: 'http://106.75.244.92:3333',
       endPoint: {
         flightQuery: '/flights',
         flightPriceQuery: '/flight',
@@ -71,7 +71,7 @@ if (process.env.NODE_ENV === 'production') {
       loopTime: 1000 * 60 * 1 // 1分钟一次 (deprecated)
     },
     mysql: {
-      host: '127.0.0.1' || 'mysqllocal' || '116.230.37.113',
+      host: '127.0.0.1' || 'mysqllocal',
       user: 'root',
       port: '3307',
       password: 'ufwtfie',
