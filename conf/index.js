@@ -56,7 +56,8 @@ if (process.env.NODE_ENV === 'production') {
       endPoint: {
         flightQuery: '/flights',
         flightPriceQuery: '/flight',
-        createOrder: '/orders'
+        createOrder: '/orders',
+        createTMCOrder: '/tmc/orders'
       }
     },
     privateKey: 'a8bfccb455e1e39e75ed9490aaa75ab7d771cb02f748eff6039022be7e972d3a',
