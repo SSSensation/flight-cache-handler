@@ -52,7 +52,7 @@ if (process.env.NODE_ENV === 'production') {
       password: 'Zxs-2mdsr_3'
     },
     flightBase: {
-      baseURl: 'http://106.75.244.92:3333',
+      baseURL: 'http://106.75.244.92:3333',
       endPoint: {
         flightQuery: '/flights',
         flightPriceQuery: '/flight',
