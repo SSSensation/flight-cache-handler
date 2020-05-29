@@ -16,7 +16,7 @@ docker build -t flight_cache_handler .
 
 # 启动一个container
 docker run --name=flight_cache_handler --link mysqllocal:mysqllocal -tid -p 7777:7777 flight_cache_handler
-docker run --name=flight_cache_handler -tid -p 7777:7777 flight_cache_handler
+docker run --name=flight_cache_handler -tid -p 7777:7777 flight_cache_handler && docker logs -f flight_cache_handler
 
 # build and start container
 docker build -t iyjian/flightengine . && docker run --restart=always --name flightEngine -p 3333:3333 -d iyjian/flightengine
