@@ -8,7 +8,7 @@ if (process.env.NODE_ENV === 'production') {
       // 执行任务的时间安排
       taskStart: '2 1 * * *',
       // 添加扫票任务的时间安排
-      ticketingTaskAdd: '*/5 * * * *',
+      ticketingTaskAdd: '*/2 * * * *',
       // 扫票频率 (微秒)
       loopTime: 1000 * 60 * 10 // 10 分钟一次 (deprecated)
     },
@@ -22,6 +22,7 @@ if (process.env.NODE_ENV === 'production') {
       ]
     },
     ctct: '13061895857',
+    agent: '13916636651',
     mysql: {
       host: '10.23.43.163', // ucloud rds
       user: 'ibeplus',
@@ -67,6 +68,7 @@ if (process.env.NODE_ENV === 'production') {
   module.exports = {
     env: false, // development env
     ctct: '13061895857',
+    agent: '13916636651',
     schedule: {
       ticketingTaskAdd: '*/2 * * * *',
       loopTime: 1000 * 60 * 1 // 1分钟一次 (deprecated)
