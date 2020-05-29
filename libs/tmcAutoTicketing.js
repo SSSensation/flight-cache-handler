@@ -44,7 +44,7 @@ const workFunc = async (tktTaskBase, flightlib) => {
 
         try {
           // timeout
-          if (moment(t.latestBookingTime).utc() > moment().utc() || moment(t.departureDate).utc() > moment().utc()) {
+          if (moment().utc() > moment(t.latestBookingTime).utc() || moment().utc() > moment(t.departureDate).utc().add(1, 'days')) {
             // update task status in database
             await models.autoTicketingTask.update({ status: '2' }, {
               where: {
@@ -198,7 +198,7 @@ const workFunc = async (tktTaskBase, flightlib) => {
         } catch (e) {
           logger.error(e)
         }
-      }, t.scanInterval * 60 * 1000)
+      }, t.scanInterval * 60 * 1000 || 5 * 60 * 000) // 如果没有，那就5分钟一次
     }
   }
 
