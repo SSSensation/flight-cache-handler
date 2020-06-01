@@ -98,6 +98,10 @@ const workFunc = async (tktTaskBase, flightlib) => {
                 }
               }
 
+              if (moment() > moment(flight.departureDate + ` ${flight.departureTime.slice(0, 2)}:${flight.departureTime.slice(2, 4)}:00`).add(-t.reserveTime, 'minutes')) {
+                continue
+              }
+
               let priceInfo = await flightlib.getPriceWithFlightKey({
                 params: {
                   flightKey: flight.flightKey

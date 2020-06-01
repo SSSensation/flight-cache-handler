@@ -22,7 +22,13 @@ module.exports = (mysql, Sequelize) => {
     },
     scanInterval: {
       type: Sequelize.INTEGER,
-      comment: '扫票间隔时间(分钟)'
+      comment: '扫票间隔时间(分钟)',
+      defaultValue: 5
+    },
+    reserveTime: {
+      type: Sequelize.INTEGER,
+      comment: '预留出行时间(分钟)，过滤掉来不及登机的航班',
+      defaultValue: 60
     },
     airline: {
       type: Sequelize.STRING(2),
