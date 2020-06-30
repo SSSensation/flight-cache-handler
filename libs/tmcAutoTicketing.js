@@ -92,6 +92,13 @@ const workFunc = async (tktTaskBase, flightlib) => {
 
           if (flightInfo.error === 0) {
             for (let flight of flightInfo.data) {
+              if (t.flightNO) {
+                // only specific flight should be used to order cabin
+                if (flight.flightNO !== t.flightNO) {
+                  continue
+                }
+              }
+
               if (t.frequentPassenger.type === 'AD') {
                 if (parseInt(flight.lowestPrice) > t.priceLimit) {
                   continue
