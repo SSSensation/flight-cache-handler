@@ -11,7 +11,7 @@ WORKDIR /usr/src/app/flightCacheHandler
 COPY . .
 # RUN npm config set registry https://registry.npm.taobao.org
 # RUN npm info express
-# RUN npm install cnpm -g --registry=https://registry.npm.taobao.org
+RUN npm install cnpm -g --registry=https://registry.npm.taobao.org
 
 RUN cnpm install
 EXPOSE 7777
